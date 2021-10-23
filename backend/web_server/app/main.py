@@ -6,8 +6,10 @@ import time
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-import crud,models,schemas
-from database import SessionLocal, engine
+from . import crud
+from . import models
+from . import schemas
+from .database import SessionLocal, engine
 from sqlalchemy.exc import OperationalError
 
 for i in range(10):
