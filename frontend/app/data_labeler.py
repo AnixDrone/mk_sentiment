@@ -8,7 +8,7 @@ URL = 'http://130.61.244.34:5000/'
 
 
 def get_sentence():
-    r = requests.get(f'{URL}sentence').json()
+    r = requests.get(f'{URL}random_sentence').json()
     if r is None:
         return None
     sentence = r['sentence']
