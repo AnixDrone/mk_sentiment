@@ -11,7 +11,7 @@ def get_sentence(db: Session, sentence_id: int):
 
 
 def get_random_sentence(db: Session):
-    return db.query(models.Sentences).order_by(func.random()).first()
+    return db.query(models.Sentences).order_by(func.random()).filter(models.Sentences.labeled==3).first()
 
 
 def get_unlabeled_sentece(db: Session):
