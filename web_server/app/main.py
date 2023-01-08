@@ -1,7 +1,7 @@
 """Main app module."""
-from typing import Optional
-from sqlalchemy.orm import Session
 import time
+from sqlalchemy.orm import Session
+from sqlalchemy.exc import OperationalError
 
 from fastapi import Depends, FastAPI, HTTPException
 
@@ -9,7 +9,7 @@ from . import crud
 from . import models
 from . import schemas
 from .database import SessionLocal, engine
-from sqlalchemy.exc import OperationalError
+
 
 for i in range(10):
     try:

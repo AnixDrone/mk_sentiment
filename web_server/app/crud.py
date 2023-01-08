@@ -27,7 +27,10 @@ def get_random_sentence(data_base: Session):
     :return: Sentence
     :rtype: models.Sentences
     """
-    return data_base.query(models.Sentences).order_by(func.random()).filter(models.Sentences.labeled == 3).first()
+    return data_base.query(models.Sentences)\
+        .order_by(func.random())\
+        .filter(models.Sentences.labeled == 3)\
+        .first()
 
 
 def get_unlabeled_sentece(data_base: Session):
@@ -68,7 +71,9 @@ def create_sentece(data_base: Session, sentence_base: schemas.SentenceBase):
     data_base.add(db_sentence)
     data_base.commit()
     data_base.refresh(db_sentence)
-    return schemas.Sentence(id=db_sentence.id, sentence=db_sentence.sentence, labeled=db_sentence.labeled)
+    return schemas.Sentence(id=db_sentence.id,
+                            sentence=db_sentence.sentence,
+                            labeled=db_sentence.labeled)
 
 
 def label_sentence(data_base: Session, sentence_id: int, label: int):
@@ -82,7 +87,7 @@ def label_sentence(data_base: Session, sentence_id: int, label: int):
     :type label: int
     :return: Sentence
     :rtype: models.Sentences
-    """    
+    """
     db_sentence = data_base.query(models.Sentences).filter(
         models.Sentences.id == sentence_id).first()
     db_sentence.labeled = label
