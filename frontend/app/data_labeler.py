@@ -1,18 +1,22 @@
+"""Data Labeler."""
 import streamlit as st
-import pandas as pd
-import numpy as np
 import requests
-import time
 
-URL = 'http://130.61.244.34:5000'
+
+URL = 'http://130.61.244.34:5000/'
 
 
 def get_sentence():
-    r = requests.get(f'{URL}random_sentence').json()
-    if r is None:
+    """Get random sentence from the database.
+
+    :return: Sentence and its id
+    :rtype: tuple
+    """
+    req = requests.get(f'{URL}random_sentence', timeout=500).json()
+    if req is None:
         return None
-    sentence = r['sentence']
-    s_id = r['id']
+    sentence = req['sentence']
+    s_id = req['id']
     return sentence, s_id
 
 

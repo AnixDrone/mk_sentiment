@@ -1,6 +1,5 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
-from sqlalchemy.orm import relationship
-
+"""Models for the database."""
+from sqlalchemy import Column, Integer, String
 
 from .database import Base
 
