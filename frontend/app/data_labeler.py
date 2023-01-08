@@ -4,7 +4,7 @@ import numpy as np
 import requests
 import time
 
-URL = 'http://130.61.244.34:5000/'
+URL = 'http://130.61.244.34:5000'
 
 
 def get_sentence():
