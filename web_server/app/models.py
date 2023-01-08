@@ -1,5 +1,5 @@
 """Models for the database."""
-# pylint: disable=too-few-public-methods   
+# pylint: disable=too-few-public-methods
 from sqlalchemy import Column, Integer, String
 
 from .database import Base
