@@ -23,12 +23,12 @@ def get_sentence():
 if __name__ == '__main__':
     st.title('Label data for macedonian sentiment predictor')
     sentence_info = get_sentence()
-    some_thing = None
+    SOME_THING = None
     if sentence_info is None:
-        some_thing = st.subheader('There is no unlabled sentences')
+        SOME_THING = st.subheader('There is no unlabled sentences')
         st.button('Refresh')
     else:
-        some_thing = st.subheader(sentence_info[0])
+        SOME_THING = st.subheader(sentence_info[0])
         st.caption('Please choose sentiment for the presented sentence')
 
         col1, col2, col3 = st.columns(3)
